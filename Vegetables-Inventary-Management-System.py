@@ -20,17 +20,17 @@ while True:
             if Pin == own:
                 print('Login Sucessful')
                 break
-        else:
-            print('Entered Pin is Wrong')            
-            pin_a = pin_a + 1
+            else:
+                print('Entered Pin is Wrong')            
+                pin_a = pin_a + 1
         if Pin != own:
             print('Tempararily, Your Profile is Blocked')
         else:
             print('1. Add Items to Inventary','2. Remove Item','3. Update Item',\
                     '4. View Inventry','5. View User Details','6. View Report',\
                     '7. Total Revenue','8. Total Revenue Itemized Profit','9. Exit',sep = '\n')
-            choose = int(input('Choose an Option: '))
             while True:
+                choose = int(input('Choose an Option: '))
                 if choose == 1:
                     ask_veg_name = input('Enter what Vegetable you want to add: ')
                     if ask_veg_name not in veg:
@@ -71,9 +71,6 @@ while True:
                     for i in range(len(veg)):
                         print('Vegetable Name:',veg[i])
                         print('Quantity:',qty[i])
-                        print('Cost_Price/Kg:',cppr[i])
-                        print('Sell_Price/Kg:',sppr[i])
-                    
                 elif choose == 5:
                     print(user)
                 elif choose == 6:
@@ -92,7 +89,7 @@ while True:
                     break
                 else:
                     print('Invalid Option')
-                stay = input("ENter 'Yes/No', if you want to do other programs: ")
+                stay = input("Enter 'Yes/No', if you want to do other programs: ")
                 if stay != 'yes':
                     print('Thanks for Auditting')
                     break
@@ -177,11 +174,11 @@ while True:
                         v_idx = veg.index(cart_veg[i])
                         item_price = sppr[v_idx]*qty_veg[i]
                         cost_price = cppr[v_idx]*qty_veg[i]
-                        print(cart_veg[i],'-',qty_veg[i],'-',item_price)
+                        print(cart_veg[i],'-',qty_veg[i],'Kgs','-',item_price,'/-')
                         total = total + item_price
                         total_revenue = total_revenue + item_price
                         total_itemized_profit = total_itemized_profit + (item_price - cost_price)
-                    print('Total Bill is',total)
+                    print('Total Bill is',total,'/-')
                     print('Thanks For Shopping, Have a Nice Day')
                     cart_veg = []
                     qty_veg = []
